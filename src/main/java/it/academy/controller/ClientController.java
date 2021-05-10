@@ -57,7 +57,8 @@ public class ClientController {
             @RequestParam Currency currency
     ) {
         return paymentCardRepository
-                .findByClientIdNotNullAndTypeAndCurrency(type,
+                .findByClientIdNotNullAndTypeAndCurrency(
+                        type,
                         currency,
                         PageRequest.of(pageNum, pageSize))
                 .stream()
