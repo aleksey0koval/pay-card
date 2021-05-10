@@ -63,10 +63,9 @@ public class ClientController {
                 .stream()
                 .map(PaymentCard::getClientId)
                 .map(id -> clientRepository.findById(id).orElse(null))
-                .filter(Objects::isNull)
+                .filter(Objects::nonNull)
                 .map(Client::getPhoneNumber)
                 .collect(Collectors.toList());
     }
-
 
 }
