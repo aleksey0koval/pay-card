@@ -1,4 +1,4 @@
-package it.academy.controller;
+package it.academy.rest;
 
 import it.academy.model.Client;
 import it.academy.model.Currency;
@@ -6,7 +6,6 @@ import it.academy.model.PaymentCard;
 import it.academy.model.Type;
 import it.academy.service.ClientRepository;
 import it.academy.service.PaymentCardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,6 @@ public class ClientController {
     private ClientRepository clientRepository;
     private PaymentCardRepository paymentCardRepository;
 
-    @Autowired
     public ClientController(ClientRepository clientRepository,
                             PaymentCardRepository paymentCardRepository) {
         this.clientRepository = clientRepository;
@@ -68,5 +66,4 @@ public class ClientController {
                 .map(Client::getPhoneNumber)
                 .collect(Collectors.toList());
     }
-
 }
